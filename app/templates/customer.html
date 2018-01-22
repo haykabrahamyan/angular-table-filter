@@ -1,0 +1,107 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <section class="sidebar" style="height: auto;">
+        <!-- Sidebar user panel -->
+        <!-- search form -->
+        <span class="sidebar-filter-text">SEARCH</span>
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+
+                <div class="btn-icon-search">
+                    <!--<button type="submit" name="search" id="search-btn" class="btn btn-flat">-->
+                    <i class="fa fa-search"></i>
+                    <!--</button>-->
+                </div>
+                <input type="text" name="q" class="form-control searchInput" placeholder="Search by Name">
+            </div>
+        </form>
+        <span class="sidebar-filter-text">FEATURES</span>
+        <ul class="filter-options">
+            <li>
+                <input type="checkbox" ng-change="customFilter('HDMI')" i-check ng-model="filterOptions.HDMI">
+                HDMI
+                <span class="pull-right count">{{countOptions('HDMI')}}</span>
+            </li>
+            <li>
+                <input type="checkbox" ng-change="customFilter('VGA')" i-check ng-model="filterOptions.VGA">
+                VGA
+                <span class="pull-right count" >{{countOptions('VGA')}}</span>
+            </li>
+            <li>
+                <input type="checkbox" ng-change="customFilter('DVI')" i-check ng-model="filterOptions.DVI">
+                DVI
+                <span class="pull-right count">{{countOptions('DVI')}}</span>
+            </li>
+            <li>
+                <input type="checkbox" ng-change="customFilter('DP')" i-check ng-model="filterOptions.DP">
+                DisplayPort(DP)
+                <span class="pull-right count">{{countOptions('DP')}}</span>
+            </li>
+            <li>
+                <input type="checkbox" ng-change="customFilter('DPM')" i-check ng-model="filterOptions.DPM">
+                DisplayPort Mini(DPM)
+                <span class="pull-right count">{{countOptions('DPM')}}</span>
+            </li>
+            <li>
+                <input type="checkbox" ng-change="customFilter('USB3')" i-check ng-model="filterOptions.USB3">
+                USB-A 3.0
+                <span class="pull-right count">{{countOptions('USB3')}}</span>
+            </li>
+        </ul>
+        <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+    </section>
+
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+<div class="row">
+
+    <div class="col-md-12 nopadding">
+
+        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th ng-click="order()">NAME <i class="fa {{(sortReverse) ? 'fa-caret-down' : 'fa-caret-up'}}" aria-hidden="true"></i></th>
+                <th>PRICE</th>
+                <th>REVIEWS</th>
+                <th>HDMI</th>
+                <th>VGA</th>
+                <th>DVI</th>
+                <th>DP</th>
+                <th>DPM</th>
+                <th>USB-A 3.0</th>
+                <th>COLORS</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="usb in filtered_usb | orderBy:sortType:sortReverse">
+                    <td>{{ usb.name }}</td>
+                    <td>{{ usb.price}}</td>
+                    <td>{{ usb.star }} <i class="fa fa-star" aria-hidden="true"></i> {{usb.review_count}}</td>
+                    <td><i class="fa {{(usb.HDMI) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.VGA) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.DVI) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.DP) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.DPM) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.USB-3) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td>{{usb.colors}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+<script>
+    $(document).ready(function(){
+
+        $("#ex2").slider({
+            tooltip: 'always'
+        });
+    });
+</script>

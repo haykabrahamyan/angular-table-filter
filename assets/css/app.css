@@ -1,0 +1,129 @@
+html, body {
+    font-family: 'Alegreya Sans', sans-serif;
+    background-color: #5E5E5E;
+}
+
+.container {
+    margin: auto;
+    position: relative;
+    width: 960px;
+}
+
+.main {
+    box-sizing: border-box;
+    background-color: #F0F0F0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    padding: 50px;
+    margin-top: 30px;
+}
+
+.main h1 {
+    font-weight: 400;
+    margin: 10px 0;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 40px;
+    background-color: #5E5E5E;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #FFF;
+    text-align: center;
+}
+
+.main input {
+    padding: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    outline: none;
+    margin: 0;
+    min-width: 200px;
+}
+
+.main p {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.customer-cards {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    clear: both;
+    display: inline-block;
+}
+
+.customer-cards li {
+    width: 150px;
+    height: 150px;
+    float: left;
+    /*background-color: #EEE;*/
+    background-color: #F7F7F7;
+    margin-right: 27px;
+    margin-bottom: 27px;
+    box-sizing: border-box;
+    display: table;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.06);
+
+    -webkit-transition: all 0.2s ease-in-out;
+       -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+         -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+}
+
+.customer-cards li:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.customer-cards li p {
+    margin: 0;
+    text-align: center;
+    /*display: table-cell; 
+    vertical-align: middle;*/
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: #FFF;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.customer-cards li:nth-child(5n+5) {
+    margin-right: 0;
+}
+
+.new {
+    border-top: 1px solid #c3c3c3;
+}
+
+.preview p {
+    margin: 0;
+}
+
+.light {
+    color: #B9B5B5;
+}
+
+.light-red {
+    color: #FF3A3A;
+}
+
+footer {
+    text-align: right;
+    padding-top: 5px;
+}
+
+footer a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 300;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+footer a:hover {
+    background-color: #FFF;
+    color: #000;
+}
