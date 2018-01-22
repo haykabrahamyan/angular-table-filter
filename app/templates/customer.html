@@ -12,7 +12,7 @@
                     <i class="fa fa-search"></i>
                     <!--</button>-->
                 </div>
-                <input type="text" name="q" class="form-control searchInput" placeholder="Search by Name">
+                <input type="text" ng-model="searchKeyword" class="form-control searchInput" placeholder="Search by Name">
             </div>
         </form>
         <span class="sidebar-filter-text">FEATURES</span>
@@ -77,16 +77,16 @@
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="usb in filtered_usb | orderBy:sortType:sortReverse">
+                <tr ng-repeat="usb in filtered_usb | orderBy:sortType:sortReverse | filter: filtered | filter: searchKeyword">
                     <td>{{ usb.name }}</td>
                     <td>{{ usb.price}}</td>
-                    <td>{{ usb.star }} <i class="fa fa-star" aria-hidden="true"></i> {{usb.review_count}}</td>
-                    <td><i class="fa {{(usb.HDMI) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
-                    <td><i class="fa {{(usb.VGA) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
-                    <td><i class="fa {{(usb.DVI) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
-                    <td><i class="fa {{(usb.DP) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
-                    <td><i class="fa {{(usb.DPM) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
-                    <td><i class="fa {{(usb.USB-3) ? 'fa-check' : 'fa-times'}}" aria-hidden="true"></i></td>
+                    <td>{{ usb.star }} <i class="fa fa-star yellow" aria-hidden="true"></i> {{usb.review_count}}</td>
+                    <td><i class="fa {{(usb.HDMI) ? 'fa-check green' : 'fa-times red'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.VGA) ? 'fa-check green' : 'fa-times red'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.DVI) ? 'fa-check green' : 'fa-times red'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.DP) ? 'fa-check green' : 'fa-times red'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.DPM) ? 'fa-check green' : 'fa-times red'}}" aria-hidden="true"></i></td>
+                    <td><i class="fa {{(usb.USB-3) ? 'fa-check green' : 'fa-times red'}}" aria-hidden="true"></i></td>
                     <td>{{usb.colors}}</td>
                 </tr>
             </tbody>

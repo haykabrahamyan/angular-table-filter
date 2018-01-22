@@ -19,10 +19,11 @@ App.controller('CustomerController', [
           DPM:false,
           USB3:false
       };
+      $scope.filtered = {};
 
       $scope.order = function(){
           $scope.sortReverse = !$scope.sortReverse;
-      }
+      };
 
       $scope.countOptions = function(type){
           var count = 0;
@@ -32,15 +33,15 @@ App.controller('CustomerController', [
               }
           });
           return count;
-      }
+      };
 
       $scope.customFilter = function(type){
-          angular.forEach($scope.all_usb, function(value, key) {
-              if($scope.filterOptions[type]){
-                  count++;
-              }
-          });
-          console.log(type,$scope.filterOptions[type]);
+          if($scope.filterOptions[type]){
+              $scope.filtered[type] = 1;
+              $scope.$apply();
+          }
+          else
+              delete $scope.filtered[type];
       }
   }
 ]);
